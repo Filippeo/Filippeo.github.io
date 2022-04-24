@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer</title>
+    <style>
+      body {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        background-color: black;
+      }
+
+      .time {
+        position: fixed;
+
+        /* bring your own prefixes */
+        transform: translate(-50%, -50%);
+        color: rgb(9, 255, 0);
+        font-family: Arial;
+        opacity: 100%;
+        z-index: 3;
+      }
+      #mainTimer {
+        top: 50%;
+        left: 30%;
+
+        font-size: 10vw;
+      }
+
+      #splitTimer {
+        top: 50%;
+        left: 80%;
+
+        font-size: 4vw;
+      }
+
+      .menu {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        color: white;
+        font: 5vw Arial;
+        opacity: 10%;
+        z-index: 3;
+      }
+
+      .console {
+        position: fixed;
+        top: 80%;
+        left: 20%;
+      }
+
+      .button {
+        height: 50px;
+        width: 120px;
+        border: none;
+        background: white;
+        font-size: 2.2rem;
+        color: inherit;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .button:hover {
+        background-color: rgb(129, 129, 129);
+      }
+      .button:active {
+        background-color: yellow;
+      }
+
+      table,
+      th,
+      td {
+        border: 5px solid rgb(255, 255, 255);
+        border-collapse: collapse;
+        /* border-radius: 10px; */
+      }
+    </style>
+    <script src="script.js" defer type="module"></script>
+  </head>
+  <body>
+    <div class="menu"></div>
+    <div class="time" id="mainTimer">1:00</div>
+    <div class="time" id="splitTimer" contenteditable="true">
+      <table id="splitTable">
+        <tr>
+          <th>split</th>
+          <th>time</th>
+        </tr>
+      </table>
+    </div>
+    <div class="console">
+      <button class="button" id="start">start</button>
+      <button class="button" id="reset">reset</button>
+      <button class="button" id="pause">pause</button>
+      <button class="button" id="split">split</button>
+    </div>
+  </body>
+</html>
