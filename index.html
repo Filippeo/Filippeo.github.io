@@ -7,6 +7,12 @@
     <title>time-split</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="apple-touch-icon" href="/images/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
     <style>
       body {
         height: 100vh;
@@ -20,27 +26,25 @@
 
       .time {
         position: fixed;
-
-        /* bring your own prefixes */
-        transform: translate(-50%, -50%);
         color: rgb(9, 255, 0);
         /* color: rgb(0, 38, 255); */
 
-        font-family: Arial;
+        font-family: "Atkinson Hyperlegible", sans-serif;
+        font-weight: bold;
         opacity: 100%;
         z-index: 3;
       }
       #mainTimer {
-        top: 50%;
-        left: 30%;
-
+        top: 40%;
+        left: 10%;
+        font-weight: bold;
         font-size: 10vw;
       }
 
       #splitTimer {
-        top: 50%;
-        left: 80%;
-
+        top: 40%;
+        left: 60%;
+        font-weight: 400;
         font-size: 4vw;
       }
 
