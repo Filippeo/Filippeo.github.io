@@ -1,15 +1,15 @@
-'use strict';
+"use strict";
 
 //selecting elements
 
-const mainTimer = document.getElementById('mainTimer');
-const splitTimer = document.getElementById('splitTimer');
-const splitTable = document.getElementById('splitTable');
-const splitTimes = document.querySelectorAll('.split');
-const resetButton = document.getElementById('reset');
-const startButton = document.getElementById('start');
-const pauseButton = document.getElementById('pause');
-const splitButton = document.getElementById('split');
+const mainTimer = document.getElementById("mainTimer");
+const splitTimer = document.getElementById("splitTimer");
+const splitTable = document.getElementById("splitTable");
+const splitTimes = document.querySelectorAll(".split");
+const resetButton = document.getElementById("reset");
+const startButton = document.getElementById("start");
+const pauseButton = document.getElementById("pause");
+const splitButton = document.getElementById("split");
 
 let nowTime, time, timeWhenStopped, stoppedTime, stop, startTime, newSplitTime;
 let offsetTime = 0;
@@ -22,12 +22,12 @@ function getTime() {
   nowTime = Date.now();
 
   if (stop) {
-    console.log('stopped');
+    console.log("stopped");
     stoppedTime = nowTime - startTime - timeWhenStopped;
-    localStorage.setItem('stoppedTime', stoppedTime);
+    localStorage.setItem("stoppedTime", stoppedTime);
   } else {
-    console.log('live');
-    localStorage.setItem('stoppedTime', stoppedTime);
+    console.log("live");
+    localStorage.setItem("stoppedTime", stoppedTime);
   }
   time = nowTime - startTime - stoppedTime + offsetTime;
   mainTimer.textContent = timerDisplay(time);
@@ -43,19 +43,19 @@ function getTime() {
 }
 getTime();
 
-startButton.addEventListener('click', function () {
+startButton.addEventListener("click", function () {
   stop = false;
   // localStorage.setItem('stop', stop);
 });
 
-resetButton.addEventListener('click', reset);
+resetButton.addEventListener("click", reset);
 
-pauseButton.addEventListener('click', function () {
+pauseButton.addEventListener("click", function () {
   stop = true;
   pause();
 });
 
-splitButton.addEventListener('click', split);
+splitButton.addEventListener("click", split);
 
 function timerDisplay(timeInMiliseconds) {
   let h, m, s, ms;
@@ -81,13 +81,13 @@ function timerDisplay(timeInMiliseconds) {
   }
 }
 
-window.addEventListener('keydown', function (e) {
+window.addEventListener("keydown", function (e) {
   switch (e.key) {
-    case ' ':
+    case " ":
       stop = !stop;
       pause();
       return;
-    case 'Escape':
+    case "Escape":
       reset();
       return;
   }
@@ -104,27 +104,29 @@ function reset() {
 
   timeWhenStopped = 0;
   localStorage.clear();
-  splitTimes.textContent = '';
+  splitTimes.textContent = "";
 }
 
 function split() {
   newSplitTime = time;
+  if (true) {
+  }
   splitTable.insertAdjacentHTML(
-    'beforeend',
+    "beforeend",
     `
     <tr>
-      <td></td>
+      <td>        </td>
       <td class="split">${timerDisplay(newSplitTime)}</td>
     </tr>
   `
   );
 
-  localStorage.setItem('splitTable', splitTable.textContent);
+  localStorage.setItem("splitTable", splitTable.textContent);
 }
 
 console.log(timeStorage);
 console.log(localStorage.stoppedTime);
-console.log(Boolean('true'));
+console.log(Boolean("true"));
 
 function readSavedTime() {
   if (timeStorage.length > 1) {
@@ -140,7 +142,7 @@ function readSavedTime() {
     timeWhenStopped = 0;
     stop = true;
     startTime = Date.now();
-    localStorage.setItem('startTime', startTime);
+    localStorage.setItem("startTime", startTime);
 
     return;
   }
