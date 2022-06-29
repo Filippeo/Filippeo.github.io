@@ -5,7 +5,7 @@
 const mainTimer = document.getElementById("mainTimer");
 const splitTimer = document.getElementById("splitTimer");
 const splitTable = document.getElementById("splitTable");
-const splitTimes = document.querySelectorAll(".splitTime");
+let splitTimes = document.querySelectorAll(".splitTime");
 // const splitTimes = document.getElementById("splitTime");
 const resetButton = document.getElementById("reset");
 const startButton = document.getElementById("start");
@@ -100,6 +100,8 @@ function pause() {
 }
 
 function reset() {
+  splitTimes = document.querySelectorAll(".splitTime");
+
   stop = true;
   startTime = Date.now();
 
@@ -110,18 +112,27 @@ function reset() {
     splitTimes[i].textContent = "";
     console.log(splitTimes[i].textContent);
   }
+
+  if (true /*cell at the left is empty*/) {
+    // delete the entire row
+  } else if (false /* cell at the left is not empty */) {
+    // dont do that}
+  }
 }
 
 function split() {
   newSplitTime = time;
-  if (true) {
-  } else {
+  if (false /*any of the class splittimes cells is ""*/) {
+    // fill the first such cell
+  } else if (true /*all of the cells are not ""*/) {
+    // create new row and fill the cell on the right
+
     splitTable.insertAdjacentHTML(
       "beforeend",
       `
     <tr>
-      <td>        </td>
-      <td class="split">${timerDisplay(newSplitTime)}</td>
+      <td></td>
+      <td class="splitTime">${timerDisplay(newSplitTime)}</td>
     </tr>
   `
     );
