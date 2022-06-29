@@ -22,6 +22,10 @@
         align-items: center;
         margin: 0;
         background-color: black;
+        /* max-height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        scroll-behavior: smooth; */
       }
 
       .time {
@@ -36,19 +40,18 @@
       }
       #mainTimer {
         top: 20%;
-        left: 20%;
-        text-align: center;
+        left: 35%;
         font-weight: bold;
         font-size: 10vw;
       }
 
       #splitTimer {
-        top: 40%;
+        top: 50%;
         left: 40%;
         font-weight: 400;
         font-size: 4vw;
 
-        max-height: 35%;
+        max-height: 40%;
         max-width: 38%;
         overflow: auto;
       }
@@ -65,7 +68,7 @@
 
       .console {
         position: fixed;
-        top: 80%;
+        top: 40%;
         left: 30%;
       }
 
@@ -91,11 +94,13 @@
       td {
         border: 0.4vw solid rgb(255, 255, 255);
         border-collapse: collapse;
+        padding: 15px;
         /* border-radius: 10px; */
       }
     </style>
     <script src="script.js" defer type="module"></script>
   </head>
+
   <body>
     <div class="menu"></div>
     <div class="time" id="mainTimer"><p>1:00</p></div>
