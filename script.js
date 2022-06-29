@@ -115,7 +115,7 @@ function reset() {
     <th>time</th>
     </tr>
     `;
-
+  localStorage.setItem("splitTableState", splitTable.innerHTML);
   // for (let i = 0; i < splitTimes.length; i++) {
   //   splitTimes[i].textContent = "";
   //   console.log(splitTimes[i].textContent);
@@ -160,6 +160,8 @@ function readSavedTime() {
     startTime = Number(timeStorage.startTime);
     console.log(startTime);
     stoppedTime = Number(timeStorage.stoppedTime);
+
+    // localStorage.setItem("splitTableState", splitTable.innerHTML);
     splitTable.innerHTML = timeStorage.splitTableState;
 
     // stop = Boolean(timeStorage.stop);
