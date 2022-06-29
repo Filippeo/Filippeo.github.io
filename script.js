@@ -18,7 +18,7 @@ let offsetTime = 0;
 const timeStorage = window.localStorage;
 readSavedTime();
 // splitTable.textContent = timeStorage.splitTable;
-
+//  ds
 function getTime() {
   nowTime = Date.now();
 
