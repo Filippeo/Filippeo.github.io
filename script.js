@@ -109,11 +109,11 @@ function reset() {
   localStorage.clear();
 
   splitTable.innerHTML = `
-  <tr>
-  <th>split</th>
-  <th>time</th>
-  </tr>
-  `;
+    <tr>
+    <th>split</th>
+    <th>time</th>
+    </tr>
+    `;
 
   // for (let i = 0; i < splitTimes.length; i++) {
   //   splitTimes[i].textContent = "";
@@ -137,27 +137,28 @@ function split() {
     splitTable.insertAdjacentHTML(
       "beforeend",
       `
-    <tr>
-      <td></td>
-      <td class="splitTime">${timerDisplay(newSplitTime)}</td>
-    </tr>
-  `
+      <tr>
+        <td></td>
+        <td class="splitTime">${timerDisplay(newSplitTime)}</td>
+      </tr>
+      `
     );
   }
-  localStorage.setItem("splitTable", splitTable.textContent);
+  localStorage.setItem("splitTableState", splitTable.innerHTML);
 }
 
-console.log(timeStorage);
-console.log(localStorage.stoppedTime);
-console.log(Boolean("true"));
+// console.log(timeStorage);
+// console.log(localStorage.stoppedTime);
+// console.log(Boolean("true"));
 
 function readSavedTime() {
-  if (timeStorage.length > 1) {
+  if (timeStorage.length > 2) {
     console.log(timeStorage.length);
 
     timeWhenStopped = Number(timeStorage.timeWhenStopped);
     startTime = Number(timeStorage.startTime);
     stoppedTime = Number(timeStorage.stoppedTime);
+    splitTable.innerHTML = timeStorage.splitTableState;
 
     stop = Boolean(timeStorage.stop);
     return;
@@ -166,6 +167,7 @@ function readSavedTime() {
     stop = true;
     startTime = Date.now();
     localStorage.setItem("startTime", startTime);
+    localStorage.setItem("splitTable", splitTable.innerHTML);
 
     return;
   }
