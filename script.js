@@ -45,6 +45,7 @@ function getTime() {
 getTime();
 
 startButton.addEventListener("click", function () {
+  localStorage.setItem("startTime", startTime);
   stop = false;
   // localStorage.setItem('stop', stop);
 });
@@ -152,22 +153,23 @@ function split() {
 // console.log(Boolean("true"));
 
 function readSavedTime() {
-  if (timeStorage.length > 2) {
+  if (timeStorage.startTime) {
     console.log(timeStorage.length);
 
     timeWhenStopped = Number(timeStorage.timeWhenStopped);
     startTime = Number(timeStorage.startTime);
+    console.log(startTime);
     stoppedTime = Number(timeStorage.stoppedTime);
     splitTable.innerHTML = timeStorage.splitTableState;
 
-    stop = Boolean(timeStorage.stop);
+    // stop = Boolean(timeStorage.stop);
     return;
   } else {
     timeWhenStopped = 0;
     stop = true;
     startTime = Date.now();
-    localStorage.setItem("startTime", startTime);
-    localStorage.setItem("splitTable", splitTable.innerHTML);
+
+    localStorage.setItem("splitTableState", splitTable.innerHTML);
 
     return;
   }
