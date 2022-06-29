@@ -108,16 +108,23 @@ function reset() {
   timeWhenStopped = 0;
   localStorage.clear();
 
-  for (let i = 0; i < splitTimes.length; i++) {
-    splitTimes[i].textContent = "";
-    console.log(splitTimes[i].textContent);
-  }
+  splitTable.innerHTML = `
+  <tr>
+  <th>split</th>
+  <th>time</th>
+  </tr>
+  `;
 
-  if (true /*cell at the left is empty*/) {
-    // delete the entire row
-  } else if (false /* cell at the left is not empty */) {
-    // dont do that}
-  }
+  // for (let i = 0; i < splitTimes.length; i++) {
+  //   splitTimes[i].textContent = "";
+  //   console.log(splitTimes[i].textContent);
+  // }
+
+  // if (true /*cell at the left is empty*/) {
+  //   // delete the entire row
+  // } else if (false /* cell at the left is not empty */) {
+  //   // dont do that}
+  // }
 }
 
 function split() {
